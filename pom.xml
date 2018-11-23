@@ -2,15 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.emall.parent</groupId>
-    <artifactId>emall</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <name>emall</name>
-    <description>emall for Spring Boot</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,11 +10,28 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.emall</groupId>
+    <artifactId>emall</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>emall</name>
+    <description>emall for Spring Boot</description>
+
+    <modules>
+        <module>emall-auth</module>
+        <module>emall-common</module>
+    </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+
+        <emall-auth.version>1.0-SNAPSHOT</emall-auth.version>
+        <emall-common.version>1.0-SNAPSHOT</emall-common.version>
     </properties>
 
     <dependencyManagement>
@@ -34,6 +42,18 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emall</groupId>
+                <artifactId>emall-common</artifactId>
+                <version>${emall-common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emall</groupId>
+                <artifactId>emall-auth</artifactId>
+                <version>${emall-auth.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -54,16 +74,16 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
