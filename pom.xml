@@ -22,6 +22,8 @@
     <modules>
         <module>emall-auth</module>
         <module>emall-common</module>
+        <module>eureka-server</module>
+        <module>emall-user</module>
     </modules>
 
     <properties>
@@ -29,9 +31,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <eureka-server.version>1.0-SNAPSHOT</eureka-server.version>
 
         <emall-auth.version>1.0-SNAPSHOT</emall-auth.version>
         <emall-common.version>1.0-SNAPSHOT</emall-common.version>
+        <emall-user.version>1.0-SNAPSHOT</emall-user.version>
     </properties>
 
     <dependencyManagement>
@@ -54,6 +58,11 @@
                 <groupId>com.emall</groupId>
                 <artifactId>emall-auth</artifactId>
                 <version>${emall-auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.emall</groupId>
+                <artifactId>emall-user</artifactId>
+                <version>${emall-user.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

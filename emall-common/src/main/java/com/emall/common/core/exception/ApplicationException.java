@@ -15,8 +15,9 @@ public class ApplicationException extends RuntimeException{
 
     public ApplicationException() {}
 
-    public ApplicationException(AppCode appCode[appCode]   super(appCode.getMessage());
-    2018/11/23p16:39 = appCode;
+    public ApplicationException(AppCode appCode){
+        super(appCode.getMessage());
+        this.appCode = appCode;
     }
 
     public ApplicationException(AppCode appCode, Object... msgArgs) {
