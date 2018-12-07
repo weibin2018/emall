@@ -12,7 +12,6 @@
     <artifactId>user-server</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -20,13 +19,12 @@
 
         <dependency>
             <groupId>com.emall</groupId>
-            <artifactId>user-api</artifactId>
-            <version>${emall-user.version}</version>
+            <artifactId>emall-common</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.emall</groupId>
-            <artifactId>emall-common</artifactId>
+            <artifactId>user-api</artifactId>
+            <version>${emall-user.version}</version>
         </dependency>
     </dependencies>
 

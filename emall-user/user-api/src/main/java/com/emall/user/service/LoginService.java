@@ -1,6 +1,10 @@
 package com.emall.user.service;
 
+import com.emall.common.web.model.ResponseData;
 import com.emall.user.model.UserInfo;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @ClassName LoginService
@@ -18,5 +22,6 @@ public interface LoginService {
      *@Date 2018/12/7 14:24
      *@Return com.emall.user.model.UserInfo ，成功返回用户信息，失败返回异常提示
      **/
-    UserInfo doLogin(UserInfo userInfo);
+    @RequestMapping(value = "/user/doLogin", method = RequestMethod.POST)
+    ResponseData<UserInfo> doLogin(@RequestBody UserInfo userInfo);
 }

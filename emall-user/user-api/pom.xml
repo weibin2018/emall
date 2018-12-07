@@ -11,5 +11,11 @@
     <version>${emall-user.version}</version>
     <artifactId>user-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.emall</groupId>
+            <artifactId>emall-common</artifactId>
+        </dependency>
 
+    </dependencies>
 </project>
