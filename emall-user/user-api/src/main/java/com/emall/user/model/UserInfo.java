@@ -21,6 +21,10 @@ public class UserInfo implements Serializable {
 
     private int age = 0;
 
+    private String account;
+
+    private String pwd;
+
     public Long getId() {
         return id;
     }
@@ -43,5 +47,21 @@ public class UserInfo implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }

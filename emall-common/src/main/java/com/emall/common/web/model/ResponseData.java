@@ -125,9 +125,10 @@ public class ResponseData<T> implements Serializable {
         this.msg = message;
     }
 
-    public void ok() {
+    public ResponseData<T> ok() {
         this.code = ResponseCode.SUCCESS.getCode();
         this.msg = ResponseCode.SUCCESS.getMessage();
+        return this;
     }
 
     /**

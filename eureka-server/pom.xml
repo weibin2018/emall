@@ -10,9 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>eureka-server</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>user-api</module>
-    </modules>
 
     <dependencies>
         <dependency>
