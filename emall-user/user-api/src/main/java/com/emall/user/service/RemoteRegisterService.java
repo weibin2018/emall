@@ -7,5 +7,5 @@ package com.emall.user.service;
  * @Date 2018/11/26 21:44
  * @Version 1.0
  **/
-public interface RegisterService {
+public interface RemoteRegisterService {
 }

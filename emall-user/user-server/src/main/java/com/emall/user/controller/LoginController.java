@@ -3,9 +3,13 @@ package com.emall.user.controller;
 import com.emall.common.web.controller.AbstractController;
 import com.emall.common.web.model.ResponseData;
 import com.emall.user.model.UserInfo;
-import com.emall.user.service.LoginService;
+import com.emall.user.service.RemoteLoginService;
+import com.emall.user.service.UserLoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName LoginController
@@ -15,11 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version 1.0
  **/
 @RestController
-public class LoginController extends AbstractController implements LoginService{
+public class LoginController extends AbstractController implements RemoteLoginService {
+
+    @Autowired
+    private UserLoginService userLoginService;
+    @Autowired
+    private HttpServletRequest request;
 
     @Override
     public ResponseData<UserInfo> doLogin(@RequestBody UserInfo userInfo) {
-
-        return null;
+        this.userLoginService.doLogin(userInfo);
+        ResponseData<UserInfo> responseData = new ResponseData<>();
+        return responseData.ok();
     }
 }

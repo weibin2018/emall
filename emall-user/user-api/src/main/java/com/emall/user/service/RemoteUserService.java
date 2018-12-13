@@ -7,5 +7,5 @@ package com.emall.user.service;
  * @Date 2018/11/26 21:45
  * @Version 1.0
  **/
-public interface UserService {
+public interface RemoteUserService {
 }

@@ -1,10 +1,10 @@
 package com.emall.common.utils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.emall.common.core.exception.ApplicationException;
+import com.emall.common.log.LogUtils;
+import com.emall.common.web.model.ResponseCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.util.StringUtils;
-
-import java.io.IOException;
 
 /**
  * @ClassName JsonUtils
@@ -22,11 +22,16 @@ public class JsonUtils {
      *@Date 2018/11/23 17:42
      *@Return java.lang.String
      **/
-    public static String serialize(Object param) throws JsonProcessingException {
+    public static String serialize(Object param){
         if(null == param)
             return null;
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(param);
+        try {
+            return mapper.writeValueAsString(param);
+        }catch (Exception e){
+            LogUtils.errorLog("json序列化失败",e);
+            throw new ApplicationException(ResponseCode.UNKOWN_EXCEPTION);
+        }
     }
 
     /**
@@ -36,10 +41,15 @@ public class JsonUtils {
      *@Date 2018/11/23 17:47
      *@Return java.lang.Object
      **/
-    public static Object deserialize(String param,Class tClass) throws IOException {
+    public static Object deserialize(String param,Class tClass){
         if(StringUtils.isEmpty(param))
             return null;
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(param, tClass);
+        try {
+            return mapper.readValue(param, tClass);
+        }catch (Exception e){
+            LogUtils.errorLog("json反序列化失败",e);
+            throw new ApplicationException(ResponseCode.UNKOWN_EXCEPTION);
+        }
     }
 }

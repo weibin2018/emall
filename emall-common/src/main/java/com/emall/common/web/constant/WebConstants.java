@@ -13,7 +13,7 @@ public class WebConstants extends Constant {
     /**
      * traceId
      */
-    public static final String TRACE_ID = "X-B3-TraceId";
+    public static final String TRACE_ID = "X-trace-id";
     /**
      * sessionId
      */
@@ -28,10 +28,10 @@ public class WebConstants extends Constant {
     public static final String THREAD_USERINFO_CONTEXT = "Thread_user";
 
     /** ip **/
-    public static final String X_REAL_IP = "X-Real-IP";
-    public static final String X_SPAN_ID = "X-Span-Id";
-    public static final String X_SPAN_NAME = "X-Span-Name";
-    public static final String X_SPAN_PARENT_ID = "X-B3-ParentSpanId";
+    public static final String X_REAL_IP = "X-real-ip";
+    public static final String X_SPAN_ID = "X-span-id";
+    public static final String X_SPAN_NAME = "X-span-name";
+    public static final String X_SPAN_PARENT_ID = "X-parent-span-id";
     /**
      * 计算机名称
      */

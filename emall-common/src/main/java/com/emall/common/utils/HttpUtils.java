@@ -5,6 +5,8 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.UUID;
+
 import static com.emall.common.web.constant.WebConstants.*;
 import static com.emall.common.web.constant.WebConstants.RESPONSE_ACCEPT_CONTENT_TYPE;
 import static com.emall.common.web.constant.WebConstants.SEPARATOR_STR;
@@ -75,4 +77,16 @@ public class HttpUtils {
         }
         return tracerFlag;
     }
+
+    /**
+     *@Description 生成一个traceId
+     *@Param []
+     *@Author weibin
+     *@Date 2018/12/12 17:03
+     *@Return java.lang.String
+     **/
+    public static String createTraceId(){
+        return UUID.randomUUID().toString().replace("-","");
+    }
+
 }

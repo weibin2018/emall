@@ -34,11 +34,11 @@
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <eureka-server.version>1.0-SNAPSHOT</eureka-server.version>
         <springboot-admin.version>2.0.3</springboot-admin.version>
-        <mybatis-plus-boot-starter.version>3.0.6</mybatis-plus-boot-starter.version>
+        <mybatis.version>1.3.2</mybatis.version>
+        <maven_surefire.version>2.19.1</maven_surefire.version>
 
         <emall-auth.version>1.0-SNAPSHOT</emall-auth.version>
         <emall-common.version>1.0-SNAPSHOT</emall-common.version>
-        <emall-user.version>1.0-SNAPSHOT</emall-user.version>
     </properties>
 
     <dependencyManagement>
@@ -76,6 +76,19 @@
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Releases</name>
+            <url>http://nexus.ms.com:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Snapshot</name>
+            <url>http://nexus.ms.com:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -95,18 +108,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -116,12 +125,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- redis
@@ -159,14 +162,19 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- 打包jar文件时，跳过测试 -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven_surefire.version}</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <!-- 仓库管理 -->
+    <!-- 远程仓库 -->
     <repositories>
         <repository>
             <id>spring-milestones</id>

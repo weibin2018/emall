@@ -1,8 +1,11 @@
 package com.emall.common.web.setting;
 
+import com.emall.common.core.spring.SpringContext;
 import com.emall.common.utils.HostUtils;
+import com.emall.common.utils.HttpUtils;
 import com.emall.common.web.constant.WebConstants;
 import org.slf4j.MDC;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,7 +31,10 @@ public final class MDCSetting {
      **/
     public static void mdc(HttpServletRequest request){
         // 日志跟踪id
-        MDC.put(WebConstants.TRACE_ID,getHeader(request, WebConstants.TRACE_ID));
+        String traceId = getHeader(request, WebConstants.TRACE_ID);
+        if(StringUtils.isEmpty(traceId))
+            traceId = HttpUtils.createTraceId();
+        MDC.put(WebConstants.TRACE_ID,traceId);
         // 远程IP
         MDC.put(WebConstants.REMOTE_IP,getHeader(request,WebConstants.X_REAL_IP));
         // 请求URL
@@ -38,9 +44,9 @@ public final class MDCSetting {
         // 主机IP
         MDC.put(WebConstants.LOCAL,HostUtils.getIp());
         // spanId
-        MDC.put(WebConstants.X_SPAN_ID,getHeader(request, WebConstants.X_SPAN_ID));
+        MDC.put(WebConstants.X_SPAN_ID,HttpUtils.createTraceId());
         // X-Span-Name 工作单元名称
-        MDC.put(WebConstants.X_SPAN_NAME,getHeader(request, WebConstants.X_SPAN_NAME));
+        MDC.put(WebConstants.X_SPAN_NAME, SpringContext.getApplicationName());
         // X-B3-ParentSpanId
         MDC.put(WebConstants.X_SPAN_PARENT_ID,getHeader(request, WebConstants.X_SPAN_PARENT_ID));
     }
