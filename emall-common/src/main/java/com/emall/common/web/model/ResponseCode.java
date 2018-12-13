@@ -17,7 +17,9 @@ public enum ResponseCode implements AppCode {
     INSERT_BATCH_EXCEPTION(11, "批量新增数据失败！"),
     UPDATE_EXCEPTION(20, "更新数据失败！"),
     DELETE_EXCEPTION(30, "删除数据失败！"),
-    DISABLE_EXCEPTION(31, "禁用数据失败！"),
+    DELETE_BATCH_EXCEPTION(31, "批量删除数据失败！"),
+    DISABLE_EXCEPTION(32, "禁用数据失败！"),
+    DISABLE_BATCH_EXCEPTION(33, "批量禁用数据失败！"),
     SELECT_ONE_EXCEPTION(40, "数据获取失败！"),
     SELECT_EXCEPTION(41, "数据获取失败！"),
     SELECT_PAGINATION_EXCEPTION(42, "数据获取失败！");

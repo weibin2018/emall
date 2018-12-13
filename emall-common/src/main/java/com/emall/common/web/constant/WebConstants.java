@@ -29,9 +29,9 @@ public class WebConstants extends Constant {
 
     /** ip **/
     public static final String X_REAL_IP = "X-Real-IP";
-    public static final String X_SPAN_NAME = "X-Span-Name";
     public static final String X_SPAN_ID = "X-Span-Id";
-    public static final String X_SPAN_PARENT_ID = "X-Span-PId";
+    public static final String X_SPAN_NAME = "X-Span-Name";
+    public static final String X_SPAN_PARENT_ID = "X-B3-ParentSpanId";
     /**
      * 计算机名称
      */
@@ -48,6 +48,12 @@ public class WebConstants extends Constant {
      * 导出
      */
     public static final String X_EXPORT = "X-Export";
+    /** 远程服务器IP **/
+    public static final String REMOTE_IP = "X-remote-ip";
+    /** 本次请求URI **/
+    public static final String REQUEST_URI = "X-request-uri";
+    /** 本机IP **/
+    public static final String LOCAL = "local";
 
     public static final String METHOD_GET = "GET";
     public static final String CONTENT_TYPE = "Content-Type";

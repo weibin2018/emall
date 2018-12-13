@@ -1,4 +1,4 @@
-package com.emall.common.web.filter;
+package com.emall.common.web.filter.stream;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;

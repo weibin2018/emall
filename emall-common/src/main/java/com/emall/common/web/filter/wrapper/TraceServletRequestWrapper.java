@@ -1,4 +1,6 @@
-package com.emall.common.web.filter;
+package com.emall.common.web.filter.wrapper;
+
+import com.emall.common.web.filter.stream.TraceServletInputStream;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;

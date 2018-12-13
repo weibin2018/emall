@@ -1,5 +1,8 @@
 package com.emall.common.web.model;
 
+import com.emall.common.web.constant.WebConstants;
+import org.slf4j.MDC;
+
 import java.io.Serializable;
 
 import static com.emall.common.web.model.ResponseCode.UNKOWN_EXCEPTION;
@@ -19,7 +22,14 @@ public class ResponseData<T> implements Serializable {
     private String msg;
     /** 响应结果*/
     private T data;
+    /**当前请求URI**/
+    private String uri;
+    /**分布式请求traceId**/
     private String traceId;
+    /**本次请求spanId**/
+    private String spanId;
+    /**本机IP**/
+    private String ip;
 
     /**
      * 构造函数
@@ -95,18 +105,6 @@ public class ResponseData<T> implements Serializable {
         this.msg = msg;
     }
     /**
-     * @param traceId the traceId to set
-     */
-    public void setTraceId(String traceId) {
-        this.traceId = traceId;
-    }
-    /**
-     * @return the traceId
-     */
-    public String getTraceId() {
-        return traceId;
-    }
-    /**
      * @return the data
      */
     public T getData() {
@@ -129,6 +127,25 @@ public class ResponseData<T> implements Serializable {
         this.code = ResponseCode.SUCCESS.getCode();
         this.msg = ResponseCode.SUCCESS.getMessage();
         return this;
+    }
+
+    public String getUri() {
+        return MDC.get(WebConstants.REQUEST_URI);
+    }
+
+    public String getSpanId() {
+        return MDC.get(WebConstants.X_SPAN_ID);
+    }
+
+    public String getIp() {
+        return MDC.get(WebConstants.LOCAL);
+    }
+
+    /**
+     * @return the traceId
+     */
+    public String getTraceId() {
+        return MDC.get(WebConstants.TRACE_ID);
     }
 
     /**
