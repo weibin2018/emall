@@ -49,7 +49,7 @@ public class Base64{
      *@Return java.lang.String
      **/
     public static String decode(String str){
-        return new String(Base64Utils.decodeFromString(str),StandardCharsets.UTF_8);
+        return com.emall.common.utils.StringUtils.byteToStr(Base64Utils.decodeFromString(str),StandardCharsets.UTF_8);
     }
 
     /**

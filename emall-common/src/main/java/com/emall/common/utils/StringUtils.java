@@ -1,6 +1,6 @@
 package com.emall.common.utils;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.StringTokenizer;
@@ -146,14 +146,10 @@ public final class StringUtils {
      *@Date 2018/12/17 14:12
      *@Return java.lang.String
      **/
-    public static final String byteToStr(byte[] bytes,String charset) throws UnsupportedEncodingException {
+    public static final String byteToStr(byte[] bytes,Charset charset){
         if(null == bytes)
             throw new NullPointerException("待转换的字节数组不可以为空");
-        if(isNull(charset)) {
-            return new String(bytes);
-        }else {
-            return new String(bytes,charset);
-        }
+        return new String(bytes,charset);
     }
 
     /**
