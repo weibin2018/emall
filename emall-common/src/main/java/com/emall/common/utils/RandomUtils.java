@@ -44,18 +44,30 @@ public final class RandomUtils {
 	}
 	
 	/**
-	 * 生成指定长度的随机数
+	 * 生成指定长度的随机数,随机数是0-9 之间的数字
 	 * @param length 指定长度
 	 * @return
 	 */
-	public static final String rundom(int length){
+	public static final String rundomByNumber(int length){
 		StringBuilder builder = new StringBuilder();
 		for(int i = 0;i<length;i++){
 			builder.append(rundom(0,10));
 		}
 		return builder.toString();
 	}
-	
+
+	/**
+	 *@Description 生成随机数，随机数不限制
+	 *@Param [length]
+	 *@Author weibin
+	 *@Date 2018/12/17 12:22
+	 *@Return
+	 **/
+	public static final String rundom(int length) {
+		byte [] bytes = new byte[length];
+		ThreadLocalRandom.current().nextBytes(bytes);
+		return StringUtils.parseByte2HexStr(bytes);
+	}
 	
 	/**
 	 * 生成由年月日加随机数生成指定位数的随机数
@@ -66,7 +78,7 @@ public final class RandomUtils {
 		int day = DateUtils.getDay(null);
 		return DateUtils.getYear(null)+""+(month < 10 ? "0" + month:month) +
 			""+(day < 10 ? "0"+day:day)+""+DateUtils.getHour(null)+""+
-			DateUtils.getMinute(null)+rundom(length);
+			DateUtils.getMinute(null)+rundomByNumber(length);
 	}
 
     /**
@@ -74,6 +86,6 @@ public final class RandomUtils {
      * @return
      */
     public static String roundCode() {
-        return rundom(6);
+        return rundomByNumber(6);
     }
 }

@@ -1,5 +1,6 @@
 package com.emall.common.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.StringTokenizer;
@@ -138,4 +139,54 @@ public final class StringUtils {
         }
     }
 
+    /**
+     *@Description byte 数组转字符串
+     *@Param [bytes]
+     *@Author weibin
+     *@Date 2018/12/17 14:12
+     *@Return java.lang.String
+     **/
+    public static final String byteToStr(byte[] bytes,String charset) throws UnsupportedEncodingException {
+        if(null == bytes)
+            throw new NullPointerException("待转换的字节数组不可以为空");
+        if(isNull(charset)) {
+            return new String(bytes);
+        }else {
+            return new String(bytes,charset);
+        }
+    }
+
+    /**
+     * 二进制 转16进制
+     * @param buf
+     * @return
+     */
+    public static String parseByte2HexStr(byte buf[]) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < buf.length; i++) {
+            String hex = Integer.toHexString(buf[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex;
+            }
+            builder.append(hex.toUpperCase());
+        }
+        return builder.toString();
+    }
+
+    /**将16进制转换为二进制
+     * @param hexStr
+     * @return
+     */
+    public static byte[] parseHexStr2Byte(String hexStr) {
+        if (hexStr.length() < 1) {
+            return null;
+        }
+        byte[] result = new byte[hexStr.length()/2];
+        for (int i = 0;i< hexStr.length()/2; i++) {
+            int high = Integer.parseInt(hexStr.substring(i*2, i*2+1), 16);
+            int low = Integer.parseInt(hexStr.substring(i*2+1, i*2+2), 16);
+            result[i] = (byte) (high * 16 + low);
+        }
+        return result;
+    }
 }

@@ -5,11 +5,7 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.UUID;
-
 import static com.emall.common.web.constant.WebConstants.*;
-import static com.emall.common.web.constant.WebConstants.RESPONSE_ACCEPT_CONTENT_TYPE;
-import static com.emall.common.web.constant.WebConstants.SEPARATOR_STR;
 
 /**
  * @ClassName HttpUtils
@@ -86,7 +82,6 @@ public class HttpUtils {
      *@Return java.lang.String
      **/
     public static String createTraceId(){
-        return UUID.randomUUID().toString().replace("-","");
+        return RandomUtils.rundom(8);
     }
-
 }
