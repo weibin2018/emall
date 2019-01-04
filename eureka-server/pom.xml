@@ -20,11 +20,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.emall</groupId>
-            <artifactId>emall-common</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

@@ -1,6 +1,6 @@
 package com.emall.user;
 
-import com.emall.common.core.spring.SpringContext;
+import com.emall.core.spring.SpringContext;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

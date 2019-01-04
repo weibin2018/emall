@@ -1,6 +1,6 @@
 package com.emall.user.service;
 
-import com.emall.common.web.service.IBaseService;
+import com.emall.web.service.IBaseService;
 
 /**
  * @ClassName UserLoginService

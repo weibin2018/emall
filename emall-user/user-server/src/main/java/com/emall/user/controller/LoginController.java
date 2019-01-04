@@ -1,10 +1,10 @@
 package com.emall.user.controller;
 
-import com.emall.common.web.controller.AbstractController;
-import com.emall.common.web.model.ResponseData;
 import com.emall.user.model.UserInfo;
 import com.emall.user.service.RemoteLoginService;
 import com.emall.user.service.UserLoginService;
+import com.emall.web.controller.AbstractController;
+import com.emall.web.model.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

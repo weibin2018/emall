@@ -1,7 +1,7 @@
 package com.emall.user.service;
 
-import com.emall.common.web.model.ResponseData;
 import com.emall.user.model.UserInfo;
+import com.emall.web.model.ResponseData;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

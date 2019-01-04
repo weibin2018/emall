@@ -25,6 +25,8 @@
         <module>eureka-server</module>
         <module>emall-user</module>
         <module>monitor-server</module>
+        <module>zull-server</module>
+        <module>emall-admin</module>
     </modules>
 
     <properties>
@@ -37,8 +39,8 @@
         <mybatis.version>1.3.2</mybatis.version>
         <maven_surefire.version>2.19.1</maven_surefire.version>
 
+        <zull-server.version>1.0-SNAPSHOT</zull-server.version>
         <emall-auth.version>1.0-SNAPSHOT</emall-auth.version>
-        <emall-common.version>1.0-SNAPSHOT</emall-common.version>
     </properties>
 
     <dependencyManagement>
@@ -56,13 +58,6 @@
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>${springboot-admin.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>com.emall</groupId>
-                <artifactId>emall-common</artifactId>
-                <version>${emall-common.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>com.emall</groupId>
                 <artifactId>emall-auth</artifactId>

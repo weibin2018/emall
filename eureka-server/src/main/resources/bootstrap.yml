@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: admin
+      password: 123456
+server:
+  port: 8760
+eureka:
+  instance:
+    hostname: localhost   #主机名
+    lease-renewal-interval-in-seconds: 10 #设置注册的服务多久向服务注册中心发送心跳包
+    lease-expiration-duration-in-seconds: 15 # 设置多久没有收到注册服务的心跳包后剔除该服务
+  server:
+    enable-self-preservation: false  # 设置服务是否开启保护机制
+    eviction-interval-timer-in-ms:  10000   # 启用主动失效,并且每次主动失效检测间隔为10秒，单位毫秒
+  client:
+    fetch-registry: false  # 设置本客户端是否从服务注册中心获取服务
+    register-with-eureka: false  # 设置本实例是否注册到服务注册中心
+    service-url:  # 设置指定注册服务中心地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+logging:
+  level:
+    root: INFO
+  file: "D:\\logs\\eureka-server"

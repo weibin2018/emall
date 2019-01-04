@@ -1,11 +1,11 @@
 package com.emall.user.service.impl;
 
-import com.emall.common.core.exception.ApplicationException;
-import com.emall.common.utils.JsonUtils;
-import com.emall.common.web.model.ResponseCode;
-import com.emall.common.web.service.impl.IbaseServiceImpl;
+import com.emall.core.exception.ApplicationException;
 import com.emall.user.mapper.UserMapper;
 import com.emall.user.service.UserLoginService;
+import com.emall.utils.JsonUtils;
+import com.emall.web.model.ResponseCode;
+import com.emall.web.service.impl.IbaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,6 @@ public class UserLoginServiceImpl<UserInfo> extends IbaseServiceImpl<UserMapper<
     public void doLogin(UserInfo userInfo){
         if(null == userInfo)
             throw new ApplicationException(ResponseCode.SELECT_ONE_EXCEPTION);
-        System.out.println(JsonUtils.serialize(userInfo));
     }
 
 }

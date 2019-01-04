@@ -24,10 +24,6 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.emall</groupId>
-            <artifactId>emall-common</artifactId>
-        </dependency>
     </dependencies>
     <build>
         <finalName>monitor-server</finalName>

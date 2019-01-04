@@ -1,6 +1,6 @@
 package com.emall.user.mapper;
 
-import com.emall.common.web.mapper.BaseMapper;
+import com.emall.web.mapper.BaseMapper;
 
 /**
  * @ClassName UserMapper
